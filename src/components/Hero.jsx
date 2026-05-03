@@ -48,12 +48,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl w-full">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="w-8 h-px bg-accent inline-block" />
-          <span className="font-mono text-accent text-xs tracking-[0.2em] uppercase">
-            Available for hire
-          </span>
-        </div>
+        
 
         <h1 className="font-sans font-extrabold leading-none tracking-tight mb-4" style={{ fontSize: 'clamp(2rem,5vw,4.5rem)' }}>
           Hiba
