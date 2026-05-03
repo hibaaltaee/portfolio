@@ -6,7 +6,7 @@ export const personal = {
   github: 'https://github.com/hibaltaee',
   linkedin: 'https://linkedin.com/in/hibaltaee',
   bio: [
-    'I\'m a Computer Engineer and Fullstack Web Developer who builds complete digital products — from secure REST APIs to polished, responsive user interfaces.',
+    'I\'m a Computer Engineer and Fullstack Web Developer who builds complete digital products — from secure REST APIs to polished, responsive user interfaces. Design, develop, and maintain robust, secure, and scalable backend web applications and APIs',
     'My backend expertise spans Node.js, Express, and PostgreSQL, as well as Python, Django, and Django REST Framework. On the frontend I work with React and its modern ecosystem including Vite, Tailwind, and i18next for internationalization.',
     'Beyond web development I\'ve built embedded AI systems — combining a Raspberry Pi with Python and the OpenAI API to create a voice assistant running on Linux. I\'m also deeply interested in cybersecurity and networking.',
   ],
