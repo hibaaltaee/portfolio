@@ -6,9 +6,7 @@ export default function Footer() {
       <p className="font-mono text-xs text-muted">
         © {new Date().getFullYear()} — <span className="text-accent">{personal.name}</span>
       </p>
-      <p className="font-mono text-xs text-muted/50">
-        React · Vite · Tailwind CSS
-      </p>
+     
     </footer>
   )
 }
