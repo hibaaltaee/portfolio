@@ -80,6 +80,7 @@ export const projects = [
      
     ],
     tags: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Vite', 'Tailwind', 'JWT'],
+    githubUrl: 'https://github.com/hibaaltaee/cosmetic-store-backend',
    
    
     status: 'Final stage development',
