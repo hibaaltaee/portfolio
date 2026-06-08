@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { personal } from '../data/portfolio'
 
 const ROLES = [
-  'Fullstack Developer',
+  
   'Backend Engineer',
-  'React Developer',
   'API Architect',
-  'Ethical Hacker',
+  
 ]
 
 export default function Hero() {
@@ -64,7 +63,7 @@ export default function Hero() {
         </div>
 
         <p className="text-muted leading-relaxed mb-10 max-w-xl text-base md:text-lg">
-          Computer Engineer building robust fullstack applications — secure REST APIs,
+          Computer Engineer building backend applications — secure REST APIs,
           React frontends, embedded AI, and more.
         </p>
 
@@ -83,20 +82,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="flex flex-wrap gap-12">
-          {personal.stats.map((s) => (
-            <div key={s.label}>
-              <div className="font-mono text-3xl font-bold text-white leading-none">
-                {s.value}
-                <span className="text-accent">.</span>
-              </div>
-              <div className="font-mono text-xs text-muted uppercase tracking-widest mt-1">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        
       </div>
 
       {/* Scroll cue */}

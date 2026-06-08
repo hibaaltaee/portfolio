@@ -128,7 +128,7 @@ export default function Projects() {
           <span className="font-mono text-accent text-[10px] tracking-[0.2em] uppercase">Projects</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-12">
-          Things I've built.
+          Projects I've built.
         </h2>
       </div>
 

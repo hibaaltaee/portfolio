@@ -3,9 +3,8 @@ import { personal } from '../data/portfolio'
 
 const terminalLines = [
   { type: 'comment', text: '# whoami' },
-  { type: 'out', text: 'Hiba Altaee — CE & Fullstack Dev' },
   { type: 'spacer' },
-  { type: 'cmd', text: '$ cat skills.json' },
+  
   { type: 'out', text: '{' },
   { type: 'key-val', key: '"backend"', val: '["Node.js", "Express", "Django"],' },
   { type: 'key-val', key: '"database"', val: '["PostgreSQL"],' },
@@ -47,16 +46,8 @@ export default function About() {
           ))}
         </div>
 
-        {/* CEH Card */}
-        <div className="mt-8 flex items-center gap-5 p-5 bg-surface2 border border-white/5">
-          <div className="w-12 h-12 flex items-center justify-center text-2xl border border-accent2/30 bg-accent2/10 shrink-0">
-            🛡
-          </div>
-          <div>
-            <h4 className="text-accent2 font-bold text-sm">CEH — Certified Ethical Hacker</h4>
-            <p className="font-mono text-xs text-muted mt-0.5">Cisco Certification · Networking & Cybersecurity</p>
-          </div>
-        </div>
+       
+        
       </div>
 
       {/* Right — terminal */}

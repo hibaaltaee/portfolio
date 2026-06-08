@@ -5,7 +5,6 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#stack', label: 'Stack' },
   { href: '#projects', label: 'Projects' },
-  { href: '#security', label: 'Security' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -25,10 +24,6 @@ export default function Navbar() {
         scrolled ? 'bg-bg/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
       }`}
     >
-      <a href="#" className="font-mono text-accent text-sm tracking-widest">
-        HA<span className="text-muted">://</span>dev
-      </a>
-
       {/* Desktop links */}
       <ul className="hidden md:flex gap-10 list-none">
         {links.map((l) => (

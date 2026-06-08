@@ -6,9 +6,9 @@ export const personal = {
   github: 'https://github.com/hibaltaee',
   linkedin: 'https://linkedin.com/in/hibaltaee',
   bio: [
-    'I\'m a Computer Engineer and Fullstack Web Developer who builds complete digital products — from secure REST APIs to polished, responsive user interfaces. Design, develop, and maintain robust, secure, and scalable backend web applications and APIs',
-    'My backend expertise spans Node.js, Express, and PostgreSQL, as well as Python, Django, and Django REST Framework. On the frontend I work with React and its modern ecosystem including Vite, Tailwind, and i18next for internationalization.',
-    'Beyond web development I\'ve built embedded AI systems — combining a Raspberry Pi with Python and the OpenAI API to create a voice assistant running on Linux. I\'m also deeply interested in cybersecurity and networking.',
+    'I\'m a Computer Engineer and  Web Developer who builds complete digital products — from secure REST APIs to polished, develop and maintain robust, secure, and scalable backend web applications and APIs',
+    'My backend expertise spans Node.js, Express, and PostgreSQL, as well as Python, Django, and Django REST Framework. On the frontend I familiar with React and its modern ecosystem including Vite, Tailwind, and i18next for internationalization.',
+    'Beyond web development I\'ve built embedded AI systems — combining a Raspberry Pi with Python and the OpenAI API to create a voice assistant running on Linux.',
   ],
   stats: [
     { value: '2+', label: 'Projects Shipped' },
@@ -51,7 +51,7 @@ export const stack = [
       { name: 'Git / GitHub', note: 'Version control' },
       { name: 'Netlify', note: 'Deployment' },
       { name: 'Linux', note: 'OS' },
-      { name: 'Raspberry Pi', note: 'Hardware' },
+      
     ],
   },
 ]
@@ -76,8 +76,28 @@ export const projects = [
     status: 'Live',
     statusColor: 'accent',
   },
-  {
+   {
     id: '02',
+    featured: false,
+    title: 'E-Commerce Cosmetics Store Backend   ',
+    subtitle: '',
+    description:
+      ' E-Commerce Cosmetics Store  platform with role-based access control, Designed and built a complete e-commerce backend — product catalog, cart system, order management, and user authentication an admin dashboard for staff management, and full Arabic/English bilingual support. Built with JWT auth .',
+    highlights: [
+      'Authentication system with JWT',
+      'Admin dashboard with full staff management',
+      'Pagination and filtering',
+      'Error handling',
+     
+    ],
+    tags: ['Node.js', 'Express', 'PostgreSQL', 'React', 'Vite', 'Tailwind', 'JWT'],
+   
+   
+    status: 'Final stage development',
+    statusColor: 'accent',
+  },
+  {
+    id: '03',
     featured: false,
     title: 'AI Voice Assistant',
     subtitle: 'Hardware + Software project',
@@ -94,23 +114,5 @@ export const projects = [
     
     status: 'Completed',
     statusColor: 'accent2',
-  },
-]
-
-export const security = [
-  {
-    icon: '🛡',
-    title: 'Certified Ethical Hacker',
-    body: 'Cisco CEH certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.',
-  },
-  {
-    icon: '🌐',
-    title: 'Network Architecture',
-    body: 'Deep understanding of TCP/IP, network protocols, firewalls, VPNs, and secure network design principles.',
-  },
-  {
-    icon: '🔍',
-    title: 'Vulnerability Assessment',
-    body: 'Skilled in identifying system vulnerabilities, performing security audits, and implementing defensive strategies.',
   },
 ]
