@@ -30,18 +30,7 @@ export const stack = [
       { name: 'REST API Design', note: 'Architecture' },
     ],
   },
-  {
-    category: 'Frontend',
-    color: 'accent2',
-    items: [
-      { name: 'React.js', note: 'UI library' },
-      { name: 'Vite', note: 'Build tool' },
-      { name: 'Tailwind CSS', note: 'Styling' },
-      { name: 'i18next', note: 'Internationalization' },
-      { name: 'React Router', note: 'Navigation' },
-      { name: 'JavaScript ES6+', note: 'Language' },
-    ],
-  },
+  
   {
     category: 'Database & Infra',
     color: 'accent3',

@@ -64,7 +64,7 @@ export default function Hero() {
 
         <p className="text-muted leading-relaxed mb-10 max-w-xl text-base md:text-lg">
           Computer Engineer building backend applications — secure REST APIs,
-          React frontends, embedded AI, and more.
+          and modern software engineering practices. Seeking a Backend Developer Internship to further develop practical industry experience..
         </p>
 
         <div className="flex flex-wrap gap-4 mb-16">
