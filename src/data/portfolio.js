@@ -4,7 +4,7 @@ export const personal = {
   tagline: 'Backend - Frontend - Networking & Security',
   email: 'hiba.waad1@gmail.com',
   github: 'https://github.com/hibaltaee',
-  linkedin: 'www.linkedin.com/in/hiba-altaee',
+  linkedin: 'www.linkedin.com/in/hiba-altaee-813500274',
   bio: [
     'I\'m a Computer Engineer and Web Developer who builds complete digital products - from secure REST APIs to polished, robust, secure, and scalable backend web applications and APIs.',
     'My backend expertise spans Node.js, Express, and PostgreSQL, as well as Python, Django, and Django REST Framework. On the frontend I am familiar with React and its modern ecosystem including Vite, Tailwind, and i18next for internationalization.',
