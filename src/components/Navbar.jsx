@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { personal } from '../data/portfolio'
 
 const links = [
@@ -13,59 +13,60 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-5 transition-all duration-300 ${
-        scrolled ? 'bg-bg/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-bg/90 backdrop-blur-md border-b border-ink/10' : 'bg-transparent'
       }`}
     >
-      {/* Desktop links */}
-      <ul className="hidden md:flex gap-10 list-none">
-        {links.map((l) => (
-          <li key={l.href}>
-            <a
-              href={l.href}
-              className="font-mono text-xs tracking-widest uppercase text-muted hover:text-accent transition-colors duration-200"
-            >
-              {l.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="section-shell flex h-14 items-center justify-between gap-3">
+        <a href="#" className="min-w-0 truncate text-sm font-bold tracking-tight text-ink">
+          {personal.name}
+        </a>
 
-      <a
-        href={`mailto:${personal.email}`}
-        className="hidden md:inline font-mono text-xs border border-white/10 hover:border-accent text-muted hover:text-accent px-4 py-2 transition-all duration-200"
-      >
-        
-      </a>
+        <ul className="hidden items-center gap-7 md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="text-sm font-medium text-muted transition-colors hover:text-ink">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-      {/* Mobile hamburger */}
-      <button
-        className="md:hidden text-muted hover:text-white"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <div className={`w-5 h-0.5 bg-current mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-        <div className={`w-5 h-0.5 bg-current mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`} />
-        <div className={`w-5 h-0.5 bg-current transition-all ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-      </button>
+        <a
+          href={`mailto:${personal.email}`}
+          className="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 md:inline-flex"
+        >
+          Email me
+        </a>
 
-      {/* Mobile menu */}
+        <button
+          type="button"
+          aria-label="Toggle navigation"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 text-ink md:hidden"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="text-lg leading-none">{menuOpen ? 'x' : '+'}</span>
+        </button>
+      </div>
+
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface border-b border-white/5 md:hidden">
-          {links.map((l) => (
+        <div className="border-t border-ink/10 bg-bg/95 px-4 py-2 backdrop-blur-md md:hidden">
+          {links.map((link) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={link.href}
+              href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block font-mono text-xs tracking-widest uppercase text-muted hover:text-accent px-8 py-4 border-b border-white/5 transition-colors"
+              className="block py-2.5 text-sm font-semibold text-muted hover:text-ink"
             >
-              {l.label}
+              {link.label}
             </a>
           ))}
         </div>

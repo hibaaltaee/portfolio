@@ -8,18 +8,13 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="noise-overlay">
+    <div className="min-h-screen overflow-x-clip bg-bg text-ink">
       <Navbar />
       <main>
         <Hero />
-        <div className="section-divider" />
         <About />
-        <div className="section-divider" />
         <Stack />
-        <div className="section-divider" />
         <Projects />
-        <div className="section-divider" />
-        
         <Contact />
       </main>
       <Footer />

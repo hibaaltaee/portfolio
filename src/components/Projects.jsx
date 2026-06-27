@@ -2,71 +2,64 @@ import { useInView } from '../hooks/useInView'
 import { projects } from '../data/portfolio'
 
 const statusColors = {
-  accent: 'bg-accent/10 text-accent border-accent/30',
-  accent2: 'bg-accent2/10 text-accent2 border-accent2/30',
+  accent: 'bg-accent/10 text-accent border-accent/20',
+  accent2: 'bg-accent2/10 text-accent2 border-accent2/20',
 }
 
 function ProjectCard({ project, idx }) {
   const { ref, inView } = useInView()
+  const featurePreview = project.featurePreview
 
   return (
-    <div
+    <article
       ref={ref}
-      className={`bg-bg border border-white/5 p-8 md:p-10 group hover:border-white/10 hover:bg-surface2 transition-all duration-300 ${
-        project.featured ? 'md:col-span-2' : ''
+      className={`min-w-0 rounded-[1.5rem] border border-ink/10 bg-surface p-5 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-6 md:p-8 ${
+        project.featured ? 'lg:col-span-2' : ''
       } ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-      style={{ transitionDelay: `${idx * 100}ms` }}
+      style={{ transitionDelay: `${idx * 90}ms` }}
     >
-      <div className={project.featured ? 'md:grid md:grid-cols-2 md:gap-12 items-start' : ''}>
-        {/* Info side */}
-        <div>
-          <div className="flex items-center justify-between mb-5">
-            <span className="font-mono text-muted text-xs tracking-widest">{project.id}</span>
-            <span className={`font-mono text-[10px] px-2.5 py-1 border rounded-sm tracking-widest uppercase ${statusColors[project.statusColor]}`}>
+      <div className={project.featured && featurePreview ? 'grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-8' : 'min-w-0'}>
+        <div className="min-w-0">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+            <span className="font-mono text-xs font-bold text-muted">{project.id}</span>
+            <span className={`rounded-full border px-3 py-1 text-xs font-bold ${statusColors[project.statusColor]}`}>
               {project.status}
             </span>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1 group-hover:text-accent transition-colors duration-200">
+          <h3 className="break-anywhere text-2xl font-extrabold tracking-tight text-ink md:text-3xl">
             {project.title}
           </h3>
-          <p className="font-mono text-xs text-muted mb-4">{project.subtitle}</p>
+          {project.subtitle && <p className="mt-2 text-sm font-semibold text-accent">{project.subtitle}</p>}
 
-          <p className="text-muted text-sm leading-relaxed mb-6">{project.description}</p>
+          <p className="mt-5 text-sm leading-7 text-muted">{project.description}</p>
 
-          {/* Highlights */}
-          <ul className="space-y-2 mb-6">
-            {project.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-2 text-sm text-white/70">
-                <span className="text-accent mt-0.5 text-xs">✓</span>
-                {h}
+          <ul className="mt-6 space-y-3">
+            {project.highlights.map((highlight) => (
+              <li key={highlight} className="flex gap-3 text-sm leading-6 text-ink/80">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <span>{highlight}</span>
               </li>
             ))}
           </ul>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((t) => (
-              <span
-                key={t}
-                className="font-mono text-[10px] tracking-widest uppercase border border-white/8 text-muted px-2.5 py-1"
-              >
-                {t}
+          <div className="mt-7 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span key={tag} className="rounded-full bg-bg px-3 py-1.5 text-xs font-semibold text-muted">
+                {tag}
               </span>
             ))}
           </div>
 
-          {/* Links */}
-          <div className="flex gap-6">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-accent hover:gap-2 flex items-center gap-1.5 transition-all duration-200 group/link"
+                className="inline-flex justify-center rounded-full bg-ink px-4 py-2 text-sm font-bold text-white"
               >
-                <span>Live Demo</span>
-                <span className="group-hover/link:translate-x-0.5 transition-transform">→</span>
+                Live demo
               </a>
             )}
             {project.githubUrl && (
@@ -74,43 +67,37 @@ function ProjectCard({ project, idx }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs text-muted hover:text-white flex items-center gap-1.5 transition-colors duration-200"
+                className="inline-flex justify-center rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink"
               >
-                GitHub →
+                GitHub
               </a>
             )}
           </div>
         </div>
 
-        {/* Terminal mock (featured only) */}
-        {project.featured && (
-          <div className="hidden md:block mt-8 md:mt-0">
-            <div className="bg-[#0d1117] border border-white/5 p-5 h-full min-h-[260px]">
-              <div className="flex gap-1.5 mb-4">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-              </div>
-              <div className="font-mono text-xs leading-loose text-gray-400">
-                <p className="text-muted">GET <span className="text-white">/api/menu/items</span></p>
-                <p className="text-green-500/70 text-[10px]">→ 200 OK · 12ms</p>
-                <div className="h-2" />
-                <p>[{'{'}</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"id"</span>: 1,</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"name"</span>: <span className="text-orange-300">"Margherita"</span>,</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"category"</span>: <span className="text-orange-300">"Pizza"</span>,</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"price"</span>: 12.99,</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"lang"</span>: <span className="text-orange-300">"ar/en"</span>,</p>
-                <p>&nbsp;&nbsp;<span className="text-accent2">"role"</span>: <span className="text-orange-300">"admin"</span></p>
-                <p>{'}]'}</p>
-                <div className="h-2" />
-                <p className="text-muted/50"># Dockerized · Auto-deploy on push ✓</p>
-              </div>
+        {project.featured && featurePreview && (
+          <aside className="min-w-0 rounded-[1.5rem] bg-ink p-5 text-white sm:p-6">
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <span className="break-anywhere font-mono text-xs text-white/60">{featurePreview.request}</span>
+              <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white">
+                {featurePreview.response}
+              </span>
             </div>
-          </div>
+
+            <dl className="space-y-4">
+              {featurePreview.items.map(([key, value]) => (
+                <div key={key} className="flex flex-col gap-1 border-b border-white/10 pb-3 last:border-b-0 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
+                  <dt className="text-xs uppercase tracking-[0.12em] text-white/50">{key}</dt>
+                  <dd className="break-anywhere font-mono text-xs text-white sm:text-right">{value.replaceAll('"', '')}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="mt-6 text-xs leading-6 text-white/50">{featurePreview.note.replace('# ', '')}</p>
+          </aside>
         )}
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -118,30 +105,23 @@ export default function Projects() {
   const { ref, inView } = useInView()
 
   return (
-    <section id="projects" className="px-8 md:px-16 py-24 bg-bg">
+    <section id="projects" className="section-shell py-24">
       <div
         ref={ref}
-        className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        className={`mb-12 min-w-0 max-w-2xl transition-all duration-700 ${
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`}
       >
-        <div className="flex items-center gap-3 mb-3">
-          <span className="w-6 h-px bg-accent" />
-          <span className="font-mono text-accent text-[10px] tracking-[0.2em] uppercase">Projects</span>
-        </div>
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-12">
-          Projects I've built.
+        
+        <h2 className="text-3xl font-extrabold tracking-tight text-ink md:text-5xl">
+           Projects 
         </h2>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-px bg-white/5 border border-white/5">
+      <div className="grid min-w-0 gap-5 lg:grid-cols-2">
         {projects.map((project, idx) => (
           <ProjectCard key={project.id} project={project} idx={idx} />
         ))}
-
-        {/* Placeholder */}
-        <div className="bg-bg p-10 flex flex-col items-center justify-center min-h-[280px] border border-dashed border-white/5">
-          <p className="font-mono text-[10px] tracking-widest text-muted/40 uppercase">// next project</p>
-          <p className="text-white/15 text-sm mt-2">Currently in the works...</p>
-        </div>
       </div>
     </section>
   )

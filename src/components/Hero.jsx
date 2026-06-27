@@ -1,94 +1,36 @@
-import { useState, useEffect } from 'react'
 import { personal } from '../data/portfolio'
 
-const ROLES = [
-  
-  'Backend Engineer',
-  'API Architect',
-  
-]
-
 export default function Hero() {
-  const [roleIdx, setRoleIdx] = useState(0)
-  const [displayed, setDisplayed] = useState('')
-  const [typing, setTyping] = useState(true)
-
-  useEffect(() => {
-    const current = ROLES[roleIdx]
-    let timeout
-
-    if (typing) {
-      if (displayed.length < current.length) {
-        timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80)
-      } else {
-        timeout = setTimeout(() => setTyping(false), 2000)
-      }
-    } else {
-      if (displayed.length > 0) {
-        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40)
-      } else {
-        setRoleIdx((i) => (i + 1) % ROLES.length)
-        setTyping(true)
-      }
-    }
-    return () => clearTimeout(timeout)
-  }, [displayed, typing, roleIdx])
-
   return (
-    <section className="relative min-h-screen flex items-center px-8 md:px-16 pt-28 pb-16 overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
+    <section className="section-shell flex min-h-screen items-center pt-20 sm:pt-24">
+      <div className="grid min-w-0 w-full gap-8 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="min-w-0">
+          <p className="section-label mb-5">Backend Developer</p>
+          <h1 className="max-w-4xl text-4xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-5xl md:text-6xl lg:text-7xl">
+            Building secure, useful web systems.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
+            I am Hiba Altaee, a Computer Engineer focused on backend applications, REST APIs,
+            database-backed products, and practical security-minded engineering.
+          </p>
 
-      {/* Glow */}
-      <div
-        className="absolute top-[-200px] right-[-100px] w-[700px] h-[700px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,229,160,0.06) 0%, transparent 70%)' }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl w-full">
-        
-
-        <h1 className="font-sans font-extrabold leading-none tracking-tight mb-4" style={{ fontSize: 'clamp(2rem,5vw,4.5rem)' }}>
-          Hiba
-          <br />
-          <span >Altaee</span>
-        </h1>
-
-        <div className="flex items-center gap-3 mb-6 mt-6">
-          <span className="font-mono text-sm md:text-base text-accent2">
-            {displayed}
-            <span className="animate-blink">▋</span>
-          </span>
-        </div>
-
-        <p className="text-muted leading-relaxed mb-10 max-w-xl text-base md:text-lg">
-          Computer Engineer building backend applications — secure REST APIs,
-          and modern software engineering practices. Seeking a Backend Developer Internship to further develop practical industry experience..
-        </p>
-
-        <div className="flex flex-wrap gap-4 mb-16">
-          <a
-            href="#projects"
-            className="font-mono text-xs tracking-widest px-8 py-3.5 bg-accent text-bg font-bold hover:shadow-[0_8px_30px_rgba(0,229,160,0.3)] hover:-translate-y-0.5 transition-all duration-200"
-          >
-            View Projects
-          </a>
-          <a
-            href={`mailto:${personal.email}`}
-            className="font-mono text-xs tracking-widest px-8 py-3.5 border border-white/15 text-white hover:border-accent hover:text-accent transition-all duration-200"
-          >
-            Get In Touch
-          </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="#projects"
+              className="inline-flex justify-center rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            >
+              View projects
+            </a>
+            <a
+              href={`mailto:${personal.email}`}
+              className="inline-flex justify-center rounded-full border border-ink/15 bg-surface px-6 py-3 text-sm font-bold text-ink transition-colors hover:border-ink/30"
+            >
+              Get in touch
+            </a>
+          </div>
         </div>
 
         
-      </div>
-
-      {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-        <span className="font-mono text-muted text-[10px] tracking-widest uppercase">scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-muted to-transparent" />
       </div>
     </section>
   )
