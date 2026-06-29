@@ -58,7 +58,7 @@ export const projects = [
       'Session-based history with no account required',
     ],
     tags: ['Node.js', 'Express', 'BullMQ', 'Redis', 'PostgreSQL', 'React', 'Vite', 'Tailwind', 'Docker', 'Nginx'],
-    githubUrl: 'https://github.com/hibaaltaee/securescope',
+    liveUrl: 'https://securescope.duckdns.org/',
     featurePreview: {
       request: 'POST /api/scans',
       response: '202 Accepted - queued',
